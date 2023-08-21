@@ -1,0 +1,57 @@
+.card{
+    height: 26rem;
+    width: 20rem;
+    margin: 5px;
+    z-index: 5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: bottom 0.3s ease-in-out;
+    position: fixed;
+    bottom: -100%; /* Push the card above the screen */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card.active {
+    bottom: 0;
+}
+
+.my-card-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Style for the close button */
+.closeButton {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+
+.card-title, .card-subtitle{
+    text-decoration: none;
+    user-select: none;
+}
+
+.chats-area{
+    height: 19rem;
+    width: 18rem;
+    border: 2px;
+    border-radius: 4px;
+    border-color: black;
+}
+
+.input-area{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    float: inline-end;
+}
+
+.input-group-text{
+    cursor: pointer;
+}

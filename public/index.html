@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishant Chhillar - Personal Blog</title>
+    <link rel="icon" type="image/x-icon" href="assets/sumeet.jfif">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/carousel.css" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="https://nishantchhillar.tech"><img src="assets/bhaiya.jfif" id="logo-image"></a>
+            <h3>Nishant Chhillar</h3>
+        </div>
+
+        <div class="header-center">
+            <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">
+                        <a id="search-btn"><img src="assets/icons/search.svg" ></a>
+                    </span>
+                    <input id="search-input" type="text" class="form-control" placeholder="Search article..." aria-label="Search" aria-describedby="basic-addon1">
+            </div>
+        </div>
+
+        <div class="header-right">
+            <div class="content-tray" id="header-right-content">
+
+                <div class="dropdown hover-dropdown">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="style-btn">
+                      About Me
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#about-me-container">Introduction</a></li>
+                      <li><a class="dropdown-item" href="#">Gallery</a></li>
+                      <li><a class="dropdown-item" href="#">Resume / CVV</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown hover-dropdown">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="style-btn">
+                      Projects
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="https://github.com/nchhillar2004/Fluent">Mobile Applications</a></li>
+                      <li><a class="dropdown-item" href="https://github.com/nchhillar2004/NC-Innovations">Web Applications</a></li>
+                      <li><a class="dropdown-item" href="#games-container">Games</a></li>
+                    </ul>
+                </div>
+
+                <div class="dropdown hover-dropdown">
+                    <button class="btn btn-outline-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="style-btn">
+                      Contact
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#contact-social-container">Contact Me</a></li>
+                      <li><a class="dropdown-item" href="#contact-social-container">Social Media Handles</a></li>
+                      <li><a class="dropdown-item" href="#">Help & Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="btn-group" id="theme-btn-phn">
+                    <button type="button" class="btn btn-primary" id="themeSwitch"><img id="themeLogo" src="assets/brightness-high-fill.svg"></button>
+                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item active" href="#" id="lightTheme"><img src="assets/brightness-high-fill.svg" id="theme-logo">Light</a></li>
+                        <li><a class="dropdown-item" href="#" id="darkTheme"><img src="assets/moon-stars.svg" id="theme-logo">Dark</a></li>
+                        <li><a class="dropdown-item" href="#" id="redTheme"><img src="assets/icons/fire.svg"  id="theme-logo">Fire (Red)</a></li>
+                        <li><a class="dropdown-item" href="#" id="greenTheme"><img src="assets/icons/globe-central-south-asia.svg"  id="theme-logo">Earth (Green)</a></li>
+                    </ul>
+                </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" id="menu-button">
+                <span>
+                    <img src="assets/icons/list.svg">
+                </span>
+              </button>
+        </div>
+
+              
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Nishant Chhillar</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#about-me-container">About Me</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#projects-container">Projects</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="components/contact/social.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Contact
+                      </a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#contact-social-container">Social Media Handles</a></li>
+                        <li><a class="dropdown-item" href="#">Help & Support</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">
+                        <a id="search-btn"><img src="assets/icons/search.svg" ></a>
+                    </span>
+                    <input id="search-input" type="text" class="form-control" placeholder="Search article..." aria-label="Search" aria-describedby="basic-addon1">
+                   </div>
+                   <button type="button" class="btn btn-primary" id="themeSwitch"><img id="themeLogo" src="assets/brightness-high-fill.svg"></button>
+                </div>
+          </div>
+    </header>
+
+
+    <main>
+
+        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="assets/edu.png" width="100%" height="100%">
+              <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)" ></rect></svg> -->
+              <div class="container">
+                <div class="carousel-caption text-start">
+                  <h1>Education Details.</h1>
+                  <p>School : Bal Bharti School Bahadurgarh</p>
+                  <p>University : Maharishi Dayanand University Rohtak</p> 
+                  <p><a class="btn btn-lg btn-primary" href="#">Browse Gallery</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item active">
+                <img src="assets/sub.jpg" width="100%" height="100%">
+              <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg> -->
+              <div class="container">
+                <div class="carousel-caption" >
+                    <h1>Subscribe to newsletters..</h1>
+                  <p class="opacity-75">Subscribe to latest newsletters and updates, by creating a new account or logging in.</p>
+                  <p><a class="btn btn-lg btn-primary" href="#subscribe-now-container">Subscribe now</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+                <img src="assets/social.jpeg" width="100%" height="100%">
+              <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg> -->
+              <div class="container">
+                <div class="carousel-caption text-end">
+                  <h1>Contact</h1>
+                  <p>Contact me on different social media handles</p>
+                  <p><a class="btn btn-lg btn-primary" href="#contact-social-container">Contact now</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      
+      
+        <!-- Marketing messaging and featurettes
+        ================================================== -->
+        <!-- Wrap the rest of the page in another container to center all the content. -->
+      
+        <div class="container marketing">
+      
+          <!-- Three columns of text below the carousel -->
+          <div class="row">
+            <div class="skills">
+            <h1>Skills</h1>
+            </div>
+            <div class="col-lg-4">
+              <img src="assets/python.jfif" width="140" height="140">
+              <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="assets/python.png" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg> -->
+              <h2 class="fw-normal">Python</h2>
+              <p>
+                Proficient in Python programming with expertise in the Tkinter library for creating graphical user interfaces and MySQL for database management.</p>
+              <p><a class="btn btn-secondary" href="https://www.python.org/">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="assets/mern.jfif" width="140" height="140">
+              <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg> -->
+              <h2 class="fw-normal">Full Stack Web Dev</h2>
+              <p>Skilled in MERN (MongoDB, Express.js, React, Node.js) stack, proficiently creating full-stack web applications. Profound in integrating databases, server-side logic, and dynamic user interfaces.</p>
+              <p><a class="btn btn-secondary" href="https://www.mongodb.com/mern-stack#:~:text=MERN%20stands%20for%20MongoDB%2C%20Express,)%20%E2%80%94%20Node.js%20web%20framework">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img src="assets/java.png" width="140" height="140">
+              <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg> -->
+              <h2 class="fw-normal">Java</h2>
+              <p>
+                Experienced in Java, expertly developing applications, and skilled in data structures and algorithms for effective problem-solving, ensuring optimal performance and functionality.</p>
+              <p><a class="btn btn-secondary" href="https://www.java.com/en/">View details »</a></p>
+            </div><!-- /.col-lg-4 -->
+          </div><!-- /.row -->
+      
+      
+          <!-- START THE FEATURETTES -->
+      
+          <hr class="featurette-divider">
+      
+          <div class="row featurette" id="projects-container">
+            <div class="col-md-7">
+              <h2 class="featurette-heading fw-normal lh-1">Projects <span class="text-body-secondary">App dev, Web dev, Games.</span></h2>
+              <p class="lead">I've crafted impressive websites, apps, and games that seamlessly blend functionality with creativity. My designs prioritize user experience, offering intuitive navigation and engaging content. The user-friendly interfaces of my apps and the immersive gameplay of my games showcase my commitment to excellence and innovation.</p>
+              <p class="lead" id="games-container">Play <a href="https://pacman-js.web.app">Pacman game</a> clone made by me using javascript.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="assets/coding.jfif" width="100%" height="100%">
+                <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg> -->
+            </div>
+          </div>
+      
+          <hr class="featurette-divider">
+      
+          <div class="row featurette" id="edu-container">
+            <div class="col-md-7 order-md-2">
+              <h2 class="featurette-heading fw-normal lh-1">Educational Details, <span class="text-body-secondary">Currently studying in MDU</span></h2>
+              <p class="lead">
+                I completed my Class 12 (2023) education at Bal Bharti School, Bahadurgarh. Currently, I am pursuing a BCA degree from Maharishi Dayanand University. My educational journey reflects my dedication to learning and my pursuit of academic excellence in the field of computer applications.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img src="assets/school2.jpg" width="100%" height="100%">
+              <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg> -->
+            </div>
+          </div>
+      
+          <hr class="featurette-divider">
+      
+          <div class="row featurette" id="about-me-container">
+            <div class="col-md-7">
+              <h2 class="featurette-heading fw-normal lh-1">About Me. <span class="text-body-secondary">Nishant Chhillar</span></h2>
+              <p class="lead">And yes, this is me - Nishant Chhillar. I am an 18-year-old with a strong passion for Computer Science, born on September 21, 2004. From a young age, I've been captivated by the world of technology and its limitless possibilities. This fascination has driven me to explore various programming languages, software development, and problem-solving techniques.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="assets/sumeet.jfif" width="90%" height="80%">
+              <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"></rect><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg> -->
+            </div>
+          </div>
+      
+          <hr class="featurette-divider" id="about-me-feature">
+          <div class="container col-xl-10 col-xxl-8 px-4 py-1" id="subscribe-now-container">
+            <div class="row align-items-center g-lg-5 py-5">
+              <div class="col-lg-7 text-center text-lg-start">
+                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Join our newsletters.</h1>
+                <p class="col-lg-10 fs-4">By using this service, you agree to be bound by our Google Terms of Service. I acknowledge that the information provided in this form will be subject to Google's Privacy Policy.</p>
+              </div>
+              <div class="col-md-10 mx-auto col-lg-5">
+                <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" id="signup-form">
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Email address</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Create a Password</label>
+                  </div>
+                  <div class="checkbox mb-3">
+                    <label>
+                      <input type="checkbox" value="remember-me"> Get all updates and mails.
+                    </label>
+                  </div>
+                  <button class="w-100 btn btn-lg btn-primary" type="submit" id="myButton">Subscibe</button>
+                  <hr class="my-4">
+                  <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+                </form>
+              </div>
+            </div>
+          </div>
+          <hr class="featurette-divider" id="about-me-feature">
+      
+          <!-- /END THE FEATURETTES -->
+      
+        </div><!-- /.container -->
+      
+      
+        <!-- FOOTER -->
+        
+      </main>
+
+      <footer class="container">
+          <p class="float-end"><a href="#">Back to top</a></p>
+          <p>© 2023 Nishant Chhillar, .tech · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+          <div class="content footer-social" id="contact-social-container">
+            <div>
+              <a href="https://www.youtube.com/@hr13gamingzone" target="_blank" aria-label="YouTube">
+                <i class="" data-fa-i2svg=""><svg class="svg-inline--fa fa-youtube fa-w-18 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="youtube" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg></i>
+              </a>
+              <a href="https://twitter.com/" target="_blank" aria-label="Twittter">
+                <i class="" data-fa-i2svg=""><svg class="svg-inline--fa fa-twitter fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg></i>
+              </a>
+              <a href="https://github.com/nchhillar2004" target="_blank" aria-label="Github">
+                <i class="" data-fa-i2svg=""><svg class="svg-inline--fa fa-github fa-w-16 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg></i>
+              </a>
+              <a href="https://in.linkedin.com/in/nishant-chhillar-177b7b278" target="_blank" aria-label="LinkedIn">
+                <i class="" data-fa-i2svg=""><svg class="svg-inline--fa fa-linkedin fa-w-14 fa-lg" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg></i>
+              </a>
+            </div>
+          </div>  
+          <br>
+      </footer>
+
+    <!-- <script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/singup.js"></script>
+</body>
+</html>
